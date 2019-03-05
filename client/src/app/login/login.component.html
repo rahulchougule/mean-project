@@ -1,0 +1,27 @@
+
+
+  <div class="container">
+    <form  name="frmLogin">
+        <div class="form">
+        <div class="col-md-10">
+        <label for="txtName"> User Name </label>
+        <input type="text" id="txtName"
+         class="form-control" name="txtName" [(ngModel)]="user.userName">
+            </div>
+            <br>
+            <div class="col-md-10">
+        <label for="txtPassword"> Your Password </label>
+        <input type="password" id="txtPassword" name="txtPassword" class="form-control" [(ngModel)]="user.password">
+        </div>
+            
+        <div class="col-md-6">
+        <br>
+        <input type="button" class="btn btn-success" (click)="checkLogin()" value="Login">
+        
+        
+        </div>
+    </div>
+    </form>
+</div>
+
+

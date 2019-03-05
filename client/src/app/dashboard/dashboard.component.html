@@ -1,0 +1,26 @@
+<div class="row header">
+   <div class="col-md-2">
+      <img src="./../../assets/logo.png" width="100px" height="80px">
+   </div>
+   <div class="col-md-8">
+         User Management System
+   </div>
+   <div class="col-md-2 pull-right welcome">  Welcome <a >{{user}}</a> ! You are <a>{{role}}</a>!</div>
+   
+</div>
+
+<div class="row">
+      
+   <div class="col-md-2 navigation">
+           
+         <a class="nav" [routerLink]='["../dashboard"]' > Dashboard </a> 
+         <a class="nav" [routerLink]='["userlist"]' *ngIf="forUser==false"> Users </a>
+         <a class="nav" [routerLink]='["personalinfolist"]' *ngIf="forUser==false"> Personal Info </a>
+         <a class="nav" [routerLink]='["logout"]'> Logout </a>
+   </div>
+   <div class="col-md-9">
+         <router-outlet></router-outlet>            
+   </div>
+
+</div>
+

@@ -1,0 +1,206 @@
+<div class="col-md-12">
+  <h2> Personal Information </h2>
+  <div class="col-md-12">
+  <hr/>
+  
+  <form name="frmPersonalInfo" [formGroup]="frmPersonalInfo" (submit)="save()">
+  
+      <div class="row">
+      <div class="col-md-6">
+
+            <div class="form-group col-md-12">
+                    
+                    <input type="hidden" class="form-control" id="userName" 
+                      name="userName"
+                      formControlName="userName"
+                      formGroupname="frmPersonalInfo"                     
+                      [(ngModel)]="user"/>
+                </div>
+
+
+              <div class="form-group col-md-12">
+                  <label for="firstName"> First Name </label>
+                  <input type="text" class="form-control" id="firstName" 
+                    name="firstName"
+                    formControlName="firstName"
+                    group="frmPersonalInfo"
+                    tabindex="1"
+                    [(ngModel)] = "persons.firstName"/>
+                   <div *ngIf="frmPersonalInfo.controls.firstName.dirty && !frmPersonalInfo.controls.firstName.valid" class="alert alert-danger">
+                    <p *ngIf="frmPersonalInfo.controls.firstName.errors.required"> First Name is required</p>
+                    
+              </div>
+
+              </div>
+
+
+            <div class="form-group col-md-12">
+                  <label for="lastName"> Last Name </label>
+                  <input type="text" class="form-control" id="lastName" 
+                    name="lastName"
+                    formControlName="lastName"
+                    formGroupname="frmPersonalInfo"
+                    [(ngModel)] = "persons.lastName"
+                    tabindex="3"/>
+              </div>
+
+              <div class="form-group col-md-12">
+                  <label for="dob"> Date of Birth </label>
+                  <input type="date" id="dob" class="form-control" 
+                  group="frmPersonalInfo"
+                    name="dob"
+                    formControlName="dob"
+                    tabindex="5"
+                    [(ngModel)] = "persons.dob"/>
+              </div>
+
+              <u> <h5> Address </h5></u>
+              <div class="form-group col-md-12">
+                  <label for="flatno"> Flat No </label>
+                  <input type="text" id="flatno" class="form-control"
+                   
+                    name="flatno"                    
+                    formControlName="flatno"
+                    tabindex="7" 
+                    [(ngModel)] = "persons.flatno"/>
+              </div>
+
+              <div class="form-group col-md-12">
+                  <label for="areaName"> Area Name</label>
+                  <input type="text" id="areaName" class="form-control" 
+                  [(ngModel)] = "persons.areaName"
+                    name="areaName"
+                    formControlName="areaName"
+                    tabindex="9"/>
+              </div>
+              
+              <div class="form-group col-md-12">
+                  <label for="mobileNo"> Mobile No</label>
+                  <input type="text" id="mobileNo" class="form-control" 
+                  [(ngModel)] = "persons.mobileNo"
+                    name="mobileNo"
+                    formControlName="mobileNo"
+                    tabindex="11"/>
+                    <div *ngIf="frmPersonalInfo.controls.mobileNo.dirty && !frmPersonalInfo.controls.mobileNo.valid" class="alert alert-danger">
+                        <p *ngIf="frmPersonalInfo.controls.mobileNo.errors.minLength"> Please enter valid mobile number</p>
+                        <p *ngIf="frmPersonalInfo.controls.mobileNo.errors.maxLength"> Please enter valid mobile number</p>
+                        
+                  </div>
+              </div>
+
+              <div class="form-group col-md-12">
+                  <label for="physicalDisablity"> Physical Disability</label>
+                  <input type="text" id="physicalDisablity" class="form-control" 
+                  [(ngModel)] = "persons.physicalDisablity"
+                    name="physicalDisablity"
+                    formControlName="physicalDisablity"
+                    tabindex="15"/>
+              </div>
+
+              <div class="form-group col-md-12">
+                  <label for="educationStatus"> Educational Status</label>
+                  <input type="text" id="educationStatus" class="form-control" 
+                  [(ngModel)] = "persons.educationStatus"
+                    name="educationStatus"
+                    formControlName="educationStatus"
+                    tabindex="17"
+                    />
+              </div> 
+
+      </div>
+       <div class="col-md-6">
+      <div class="form-group col-md-12">
+                  <label for="middleName"> Middle Name </label>
+                  <input type="text" class="form-control" id="middleName" 
+                  [(ngModel)] = "persons.middleName"
+                    name="middleName"
+                    formControlName="middleName"
+                    tabindex="2"/>
+              </div>
+
+              <div class="form-group col-md-12">
+                  <label for="gender"> Gender </label>
+                  <select class="form-control" id="gender"
+                  formControlName="gender"
+                  name="gender" 
+                  [(ngModel)] = "persons.gender"
+                  tabindex="4">
+                   <option value="Male"> Male </option>
+                   <option value="Female">Female</option>
+                  </select>
+              </div>
+
+              <div class="form-group col-md-12">
+                  <label for="age"> Age </label>
+                  <input type="text" id="age" class="form-control" 
+                  [(ngModel)] = "persons.age"
+                    name="age" 
+                    formControlName="age"
+                    tabindex="6"/>
+              </div>
+                  <br/><br/>
+              <div class="form-group col-md-12">
+                  <label for="societyName"> Society Name</label>
+                  <input type="text" id="societyName" class="form-control"
+                  [(ngModel)] = "persons.societyName"
+                    name="societyName" 
+                    formControlName="societyName"
+                    tabindex="8"/>
+              </div>
+
+              <div class="form-group col-md-12">
+                  <div class="row">
+                  <div class="col-md-6"> 
+                  <label for="city"> City </label>
+                  <input type="text" id="city" class="form-control" 
+                  [(ngModel)] = "persons.city"
+                    name="city"
+                    formControlName="city"
+                    tabindex="10"/>
+                  </div>
+                  <div class="col-md-6"> 
+                  <label for="pinCode"> PIN </label>
+                  <input type="text" id="pinCode" class="form-control" 
+                  [(ngModel)] = "persons.pinCode"
+                    name="pinCode" 
+                    formControlName="pinCode"
+                    tabindex="12"/>
+                  </div>
+                  </div>
+              </div>
+
+              
+              <div class="form-group col-md-12">
+                  <label for="phoneNo"> Phone No</label>
+                  <input type="text" id="phoneNo" class="form-control" 
+                  [(ngModel)] = "persons.phoneNo"
+                    name="phoneNo"
+                    formControlName="phoneNo"
+                    tabindex="13"/>
+              </div>
+
+              <div class="form-group col-md-12">
+                  <label for="maritalStatus"> Marital Status</label>
+                  <select name="maritalStatus" id="maritalStatus" class="form-control" 
+                  formControlName="maritalStatus" 
+                  [(ngModel)] = "persons.maritalStatus"
+                  tabindex="14">
+                      <option value="Unmarried"> Unmarried </option>
+                      <option value="Married"> Married </option>
+                  </select>
+              </div>
+
+              <div class="form-group col-md-12">
+                  <label for="birthSign"> Birth Sign</label>
+                  <input type="text" id="birthSign" class="form-control" 
+                  [(ngModel)] = "persons.birthSign"
+                    name="birthSign"
+                    formControlName="birthSign"
+                    tabindex="16"/>
+              </div>
+      </div> 
+      </div>
+      
+      <input type="submit" value="Add" class="btn btn-success" tabindex="18" />
+  </form>
+</div>

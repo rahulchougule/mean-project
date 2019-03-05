@@ -1,0 +1,52 @@
+<div class="container">
+
+    <div >       
+        <br>
+         
+       
+        
+    </div> 
+  
+    <div class="title">  List of Users </div>
+  <br>
+  <div class="col-md-12">
+        <div class="row"> 
+            <div class="col-md-6"> 
+                <input [(ngModel)]="searchText" class="col-md-8 form-control" placeholder="search...">
+            </div>
+            <div class="col-md-6 pull-right"> 
+                <button  class="btn btn-primary pull-right" (click)="navigateToCreateUser()" >  <i class="fa fa-plus"></i>  Add New User</button>
+            </div>            
+        </div>
+        <br>
+      <table class="table table-borderd table-striped">
+          <thead>
+              <tr>
+                  <th>User Name</th>
+                  <th>Role</th>
+                  <th>Email Id</th>
+                  <th> Date </th>
+                  <th>Action</th>
+              </tr>
+          </thead>
+            <tr *ngFor="let u of users | search:searchText">
+              <td>{{u.userName}}</td>
+              <td>{{u.role}} </td>
+              <td>{{u.email}}</td>
+              <td>{{u.dateTime}}</td>
+              <td>
+                    <a class="btn btn-warning" [routerLink]="[ '../personalinfo',u.userName]">Manage Info</a>
+                <!-- <input type="button" value="Manage Info" class="btn btn-warning" (click)="navigateToPersonalInfo()"> -->
+              </td>
+
+            </tr>
+
+          <tbody>
+
+          </tbody>
+      </table>
+     
+
+  </div>
+
+</div>

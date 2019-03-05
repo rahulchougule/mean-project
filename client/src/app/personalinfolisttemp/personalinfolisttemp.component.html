@@ -1,0 +1,49 @@
+<div class="container">
+
+    <div >       
+        <br>
+        <button  class="btn btn-danger pull-right " (click)="navigateToApprovedInfo()" >  <i class="fa fa-bell"></i> Approved Info</button>         
+         &nbsp;<button  class="btn btn-primary pull-right approve" (click)="navigateToUserList()" >  <i class="fa fa-plus"></i> User List</button>
+    </div> 
+  
+      <div class="title">  Personal Information : Inactive </div>
+  <br>
+  <div class="col-md-12">
+
+      <table class="table table-borderd table-striped">
+          <thead>
+              <tr>
+                  <th>UserName</th>
+                  <th>First Name</th>
+                  <th>Middle Name</th>
+                  <th>Last Name</th>
+                  <th>DOB</th>
+                  <th>City</th>
+                  <th>Mobile</th>
+                  <th>Action</th>
+              </tr>
+          </thead>
+            <tr *ngFor="let p of persons">
+              <td>{{p.userName}}</td>
+              <td>{{p.firstName}} </td>
+              <td>{{p.middleName}}</td>
+              <td>{{p.lastName}}</td>
+              <td>{{p.dob}}</td>
+              <td>{{p.city}}</td>
+              <td>{{p.mobileNo}}</td>
+              <td>
+                <button class="btn btn-success approve" *ngIf="enablebtn==true" (click)="[selectedUser(p), onClickApprove()]" >Approve</button> 
+                 <button class="btn btn-danger" *ngIf="enablebtn==true" (click)="[selectedUser(p), onClickReject()]">Reject</button> 
+                 <button class="btn btn-warning"  *ngIf="enablebtn==false" [disabled]=true> Access Restricted </button>
+              </td>
+
+            </tr>
+          <tbody>
+
+          </tbody>
+      </table>
+     
+
+  </div>
+
+</div>

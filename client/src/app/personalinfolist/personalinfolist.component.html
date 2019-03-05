@@ -1,0 +1,52 @@
+<div class="container">
+
+  
+      <div class="title">  Personal Information : Approved </div>
+  <br>
+  
+  <div class="col-md-12">
+        <div class="row">
+            
+            <div class="col-md-6"> 
+                <input [(ngModel)]="searchText" class="col-md-8 form-control" placeholder="search..."> 
+            </div>
+             
+            <div class="col-md-6 pull-right"> 
+                <button  class="btn btn-danger pull-right margin_left_10" (click)="navigateToPendingList()" >  <i class="fa fa-bell"></i> Pending Approvals</button>         
+                <button  class="btn btn-primary pull-right " (click)="navigateToUserList()" >  <i class="fa fa-plus"></i> User List</button>
+            </div>
+
+        </div>
+        <br>
+
+    <table class="table table-borderd table-striped">
+          <thead>
+              <tr>
+                  <th>UserName</th>
+                  <th>First Name</th>
+                  <th>Middle Name</th>
+                  <th>Last Name</th>
+                  <th>DOB</th>
+                  <th>City</th>
+                  <th>Mobile</th>
+              </tr>
+          </thead>
+            <tr *ngFor="let p of persons | search:searchText">
+              <td>{{p.userName}}</td>
+              <td>{{p.firstName}} </td>
+              <td>{{p.middleName}}</td>
+              <td>{{p.lastName}}</td>
+              <td>{{p.dob}}</td>
+              <td>{{p.city}}</td>
+              <td>{{p.mobileNo}}</td>
+              
+            </tr>
+          <tbody>
+
+          </tbody>
+      </table>
+     
+
+  </div>
+
+</div>

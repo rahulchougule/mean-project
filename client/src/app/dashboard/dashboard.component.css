@@ -1,0 +1,40 @@
+.header{
+    background:#252526;
+    color:#f2f2f2;
+    font-size:30px;
+    text-align: center;
+    padding:10px 0;
+}
+
+.navigation{
+    background: #252526;
+    color:#f2f2f2;
+    line-height: 30px;
+    border-top:1px solid #ff7200;
+        
+}
+.navigation a{
+    color: #f2f2f2;
+    margin-left: 40px;
+    padding: 10px 0;
+    border-bottom:2px solid #333;
+    
+}
+.navigation a:hover{
+    color:#fff
+}
+
+.welcome{
+    font-size:15px;
+    position: relative;
+    bottom: 0;
+    text-align: center;
+    height: 80px;
+    line-height: 80px;
+    
+}
+.welcome a{
+    text-transform:capitalize;
+    text-decoration: underline;
+       
+}
