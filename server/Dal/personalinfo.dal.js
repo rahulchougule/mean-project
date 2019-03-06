@@ -296,5 +296,33 @@ module.exports = {
             response.send({status:200, message:"Personal Info deleted"})
 
         })
+    },
+
+   
+
+    getDashboardPersonalInfoTemp:function(request, response){  // this method will get called from service url for execution
+
+        // Business logic to get records from db ------------------------------------------------
+      
+        PersonalInfoModelTemp.count(function(err,res){   
+            if(err){
+                response.send({status:404, error:"Error: Error occured at getPersonalInfo()"})
+                console.log("Error",error);
+                
+            }
+
+            if(!res)
+            {
+                response.send({status:401, error:"Personal details not found"})
+            }
+                response.send({status:200, data:res, message:"Details found"})
+
+                console.log("res", res);
+                
+        })
+
+        // End of business logic to get Srecords from db -----------------------------------------
     }
+
+
 }

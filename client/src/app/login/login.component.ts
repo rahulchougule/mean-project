@@ -30,21 +30,30 @@ export class LoginComponent implements OnInit {
   checkLogin():void{
 
     
+    
     this.serve.loginData(this.user).subscribe(
 
       (resp:Response) => {
+        if(resp){
+          console.log("resp", resp);
+          
         this.users.push(resp.json().token)
 
         sessionStorage.setItem("token", resp.json().token)
         sessionStorage.setItem("role", resp.json().role)
         sessionStorage.setItem("user", resp.json().userName)  
           
-        if(sessionStorage.getItem("token") === undefined){
-          this.router.navigate(['login'])
+        if(sessionStorage.getItem("token") === undefined || resp.json().status=="403" || resp.json().status == "401"){
+          this.router.navigate(['login']) 
+          alert(resp.json().message)
         }
-        else{
+         else{
           this.router.navigate(['dashboard'])          
         }
+      }
+      else{
+       alert("Please enter valid details  ") 
+      }
       },
       error =>{
         console.log(`Error occured at login :  ${error}`);

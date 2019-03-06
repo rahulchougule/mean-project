@@ -17,7 +17,7 @@ export class UsersComponent implements OnInit {
   users:Array<User>;
   token:string;
 
-  constructor(private serve:UserService, private router:Router) { 
+    constructor(private serve:UserService, private router:Router) { 
     this.user = new User("","","","", "")
     this.users = new Array<User>();
 

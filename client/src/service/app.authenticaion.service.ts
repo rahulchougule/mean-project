@@ -36,6 +36,14 @@ export class AuthenticationService {
 
         console.log("login data .....");
         console.log(usr);
+
+        if(usr.userName == ""){
+            alert("Please enter username")
+        } 
+        else if(usr.password =="" ){
+            alert("Please enter password")
+        }
+        else if(usr.userName !="" && usr.password !=""){
         
         let resp:Observable<Response>;
         // 1. define request header
@@ -54,8 +62,14 @@ export class AuthenticationService {
     
 
        return resp;
+        }
+        else{
+            alert("Please enter valid details")
+        }
+
+
     }
-    
+
     // putData(id:string, prd:Product):Observable<Response>{
     //     let resp:Observable<Response>;
     //     // 1. define request header

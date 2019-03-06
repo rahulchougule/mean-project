@@ -103,5 +103,75 @@ module.exports = {
             }
             response.send({status:200, message:"User deleted"})
         })
+    },
+
+    getDashboardInfo:function(request, response){  // this method will get called from service url for execution
+
+        // Business logic to get records from db ------------------------------------------------
+      
+        UserModel.find({"role":"Admin"}).count(function(err,res){   
+            if(err){
+                response.send({status:404, error:"Error: Error occured at getPersonalInfo()"})
+            }
+
+            if(!res)
+            {
+                response.send({status:401, error:"Personal details not found"})
+            }
+                response.send({status:200, data:res, message:"Details found"})
+
+                console.log("admin", res);
+                
+                
+        })
+
+        // End of business logic to get Srecords from db -----------------------------------------
+    },
+
+    getDashboardUserCount:function(request, response){  // this method will get called from service url for execution
+
+        // Business logic to get records from db ------------------------------------------------
+      
+        UserModel.find({"role":"AccessUser"}).count(function(err,res){   
+            if(err){
+                response.send({status:404, error:"Error: Error occured at usermodelcount"})
+                console.log("Error",error);
+                
+            }
+
+            if(!res)
+            {
+                response.send({status:401, error:"Personal details not found"})
+            }
+                response.send({status:200, data:res, message:"Details found"})
+
+        })
+
+        // End of business logic to get Srecords from db -----------------------------------------
+    },
+
+    getDashboardOperatorCount:function(request, response){  // this method will get called from service url for execution
+
+        // Business logic to get records from db ------------------------------------------------
+      
+        UserModel.find({"role":"Operator"}).count(function(err,res){   
+            if(err){
+                response.send({status:404, error:"Error: Error occured at usermodelcount"})
+                console.log("Error",error);
+                
+            }
+
+            if(!res)
+            {
+                response.send({status:401, error:"Personal details not found"})
+            }
+                response.send({status:200, data:res, message:"Details found"})
+
+                
+                
+                
+        })
+
+        // End of business logic to get Srecords from db -----------------------------------------
     }
 }

@@ -370,7 +370,84 @@ instance.get("/api/personalinfo/byusername/:userName", function(request, respons
   });
 
 
+
+  // to get details for dashboard
+instance.get("/api/dashboard", function(request, response){
+  var tokenReceived = request.headers.authorization.split(" ")[1];
+
+  jwt.verify(tokenReceived, instance.get("jwtSecret"), function(err, decoded){
+    if(err){
+      response.send({status:500, error:"Internal server error : Token verification failed"})
+    }
+    else{
+      request.decoded = decoded;
   
+       User.getDashboardInfo(request, response)
+       
+  
+    }
+  })
+});
+
+
+  
+
+  // to get details for dashboard  - pending approvals
+  instance.get("/api/pending", function(request, response){
+    var tokenReceived = request.headers.authorization.split(" ")[1];
+  
+    jwt.verify(tokenReceived, instance.get("jwtSecret"), function(err, decoded){
+      if(err){
+        response.send({status:500, error:"Internal server error : Token verification failed"})
+      }
+      else{
+        request.decoded = decoded;
+    
+         PersonalInfo.getDashboardPersonalInfoTemp(request, response)
+    
+      }
+    })
+  });
+
+
+
+
+  // to get details for dashboard  - Accessusers
+  instance.get("/api/users", function(request, response){
+    var tokenReceived = request.headers.authorization.split(" ")[1];
+  
+    jwt.verify(tokenReceived, instance.get("jwtSecret"), function(err, decoded){
+      if(err){
+        response.send({status:500, error:"Internal server error : Token verification failed"})
+      }
+      else{
+        request.decoded = decoded;
+    
+         User.getDashboardUserCount(request, response)
+    
+      }
+    })
+  });
+
+   // to get details for dashboard  - operators
+   instance.get("/api/operators", function(request, response){
+    var tokenReceived = request.headers.authorization.split(" ")[1];
+  
+    jwt.verify(tokenReceived, instance.get("jwtSecret"), function(err, decoded){
+      if(err){
+        response.send({status:500, error:"Internal server error : Token verification failed"})
+      }
+      else{
+        request.decoded = decoded;
+    
+         User.getDashboardOperatorCount(request, response)
+    
+      }
+    })
+  });
+
+
+
   instance.listen(4040, function() {
     console.log("Started listening on port 4040");
   });

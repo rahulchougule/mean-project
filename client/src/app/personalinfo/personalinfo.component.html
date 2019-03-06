@@ -14,22 +14,23 @@
                       name="userName"
                       formControlName="userName"
                       formGroupname="frmPersonalInfo"                     
-                      [(ngModel)]="user"/>
+                      [(ngModel)]="user"
+                      />
                 </div>
 
-
-              <div class="form-group col-md-12">
+                <div class="form-group col-md-12">
                   <label for="firstName"> First Name </label>
+                  
                   <input type="text" class="form-control" id="firstName" 
                     name="firstName"
                     formControlName="firstName"
                     group="frmPersonalInfo"
                     tabindex="1"
                     [(ngModel)] = "persons.firstName"/>
-                   <div *ngIf="frmPersonalInfo.controls.firstName.dirty && !frmPersonalInfo.controls.firstName.valid" class="alert alert-danger">
+                   <div *ngIf="frmPersonalInfo.controls.firstName.dirty && !frmPersonalInfo.controls.firstName.valid" class="validationmsg">
                     <p *ngIf="frmPersonalInfo.controls.firstName.errors.required"> First Name is required</p>
-                    
-              </div>
+                    <p *ngIf="frmPersonalInfo.controls.firstName.errors.pattern">Only characters are allowded in Name</p>                    
+                  </div>
 
               </div>
 
@@ -42,6 +43,11 @@
                     formGroupname="frmPersonalInfo"
                     [(ngModel)] = "persons.lastName"
                     tabindex="3"/>
+
+                    <div *ngIf="frmPersonalInfo.controls.lastName.dirty && !frmPersonalInfo.controls.lastName.valid" class="validationmsg">
+                        <p *ngIf="frmPersonalInfo.controls.lastName.errors.pattern">Only characters are allowded in Last Name</p>                    
+                    </div>
+
               </div>
 
               <div class="form-group col-md-12">
@@ -81,9 +87,10 @@
                     name="mobileNo"
                     formControlName="mobileNo"
                     tabindex="11"/>
-                    <div *ngIf="frmPersonalInfo.controls.mobileNo.dirty && !frmPersonalInfo.controls.mobileNo.valid" class="alert alert-danger">
+                    <div *ngIf="frmPersonalInfo.controls.mobileNo.dirty && !frmPersonalInfo.controls.mobileNo.valid" class="validationmsg">
                         <p *ngIf="frmPersonalInfo.controls.mobileNo.errors.minLength"> Please enter valid mobile number</p>
                         <p *ngIf="frmPersonalInfo.controls.mobileNo.errors.maxLength"> Please enter valid mobile number</p>
+                        <p *ngIf="frmPersonalInfo.controls.mobileNo.errors.pattern"> Please enter valid mobile number</p>
                         
                   </div>
               </div>
@@ -112,10 +119,15 @@
       <div class="form-group col-md-12">
                   <label for="middleName"> Middle Name </label>
                   <input type="text" class="form-control" id="middleName" 
-                  [(ngModel)] = "persons.middleName"
+                   [(ngModel)] = "persons.middleName"
                     name="middleName"
                     formControlName="middleName"
-                    tabindex="2"/>
+                    tabindex="2"
+                    />
+                    <div *ngIf="frmPersonalInfo.controls.middleName.dirty && !frmPersonalInfo.controls.middleName.valid" class="validationmsg">
+                        <p *ngIf="frmPersonalInfo.controls.middleName.errors.pattern">Only characters are allowded in Last Name</p>                    
+                    </div>
+    
               </div>
 
               <div class="form-group col-md-12">
@@ -136,7 +148,13 @@
                   [(ngModel)] = "persons.age"
                     name="age" 
                     formControlName="age"
-                    tabindex="6"/>
+                    tabindex="6"
+                    />
+
+                    
+                    <div *ngIf="frmPersonalInfo.controls.age.dirty && !frmPersonalInfo.controls.age.valid" class="validationmsg">
+                            <p *ngIf="frmPersonalInfo.controls.age.errors.pattern">Please check your age!</p>                    
+                    </div>
               </div>
                   <br/><br/>
               <div class="form-group col-md-12">

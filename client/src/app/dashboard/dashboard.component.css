@@ -38,3 +38,42 @@
     text-decoration: underline;
        
 }
+
+
+.adminusers{
+    background: #20A8D8; 
+    padding:20px;
+    border:1px solid #000000;
+    margin-top:20px; 
+    }
+    
+  
+    .operatorusers{
+      background: #63c2de;
+      padding:20px;    
+      margin-top:20px;
+      border:1px solid #000000;
+      }
+  
+      
+  .accessusers{
+    background: #ffc107;
+    padding:20px;
+    
+    margin-top:20px;
+    border:1px solid #000000
+    }
+    .pendingusers{
+      background: #f86c6b;
+      padding:20px;
+      
+      margin-top:20px;
+      border:1px solid #000000
+      
+    }
+  
+  
+    hr{
+      background: #f2f2f2;
+      height: 1px;
+    }

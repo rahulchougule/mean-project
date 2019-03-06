@@ -35,24 +35,32 @@ export class PersonalinfoComponent implements OnInit {
     this.frmPersonalInfo = new FormGroup({ 
       firstName : new FormControl( this.person.firstName ,
                                     Validators.compose([
-                                      Validators.required                                      
+                                      Validators.required,
+                                      Validators.pattern("/^[a-zA-Z\s]*$/")
+                                                                          
                                     ])
                                  ),
       mobileNo : new FormControl( this.person.mobileNo,
                                   Validators.compose([
                                   Validators.minLength(10),
-                                  Validators.maxLength(10)
+                                  Validators.maxLength(10),
+                                  Validators.pattern("[789][0-9]{9}")
                                   ])
                                 ),
-       lastName : new FormControl(),
+       lastName : new FormControl( this.person.lastName,
+                                  Validators.compose([Validators.pattern("/^[a-zA-Z\s]*$/")])),
        dob : new FormControl(),
        flatno : new FormControl(),
        areaName : new FormControl(),
        physicalDisablity : new FormControl(),
        educationStatus : new FormControl(),
-       middleName : new FormControl(),
+       middleName : new FormControl(this.person.lastName,
+                                    Validators.compose([Validators.pattern("/^[a-zA-Z\s]*$/")])),
        gender : new FormControl(),
-       age : new FormControl(),
+       age : new FormControl( this.person.age,
+                              Validators.compose([
+                                Validators.pattern("[0-9]{3}")
+                              ])),
        societyName : new FormControl(),
        city : new FormControl(),
        pinCode : new FormControl(),
@@ -111,10 +119,26 @@ export class PersonalinfoComponent implements OnInit {
        ) 
     }
 
-
-
+    
 
 
   }
+
+  // showAlert(ev) {
+  //   // Appending dialog to document.body to cover sidenav in docs app
+  //   // Modal dialogs should fully cover application
+  //   // to prevent interaction outside of dialog
+  //   $mdDialog.show(
+  //     $mdDialog.alert()
+  //       .parent(angular.element(document.querySelector('#popupContainer')))
+  //       .clickOutsideToClose(true)
+  //       .title('This is an alert title')
+  //       .textContent('You can specify some description text in here.')
+  //       .ariaLabel('Alert Dialog Demo')
+  //       .ok('Got it!')
+  //       .targetEvent(ev)
+  //   );
+  // };
+
 
 }

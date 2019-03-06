@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { Response } from "@angular/http";
 
+
 import { PersonalInfo } from "./../../model/app.personalinfo.model";
 import { PersonalInfoService } from "./../../service/app.personalinfo.service";
 

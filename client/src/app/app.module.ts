@@ -22,6 +22,7 @@ import { AppGuardService } from "./../service/app.route.guard";
 import { PersonalinfolisttempComponent } from './personalinfolisttemp/personalinfolisttemp.component';
 
 import { SearchPipe } from "./../pipe/search.pipe";
+import { DashboardService } from 'src/service/app.dashboard.service';
 
 @NgModule({
     declarations: [
@@ -44,7 +45,7 @@ import { SearchPipe } from "./../pipe/search.pipe";
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [AuthenticationService, UserService, PersonalInfoService, AppGuardService],
+  providers: [AuthenticationService, UserService, PersonalInfoService, AppGuardService, DashboardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
