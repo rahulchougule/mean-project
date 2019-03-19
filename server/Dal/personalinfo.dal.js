@@ -315,7 +315,14 @@ module.exports = {
             {
                 response.send({status:401, error:"Personal details not found"})
             }
-                response.send({status:200, data:res, message:"Details found"})
+                
+            if(res == null || res == 0)
+            {
+                res = '0';
+            }
+            console.log("res--:", res);
+            
+            response.send({status:200, data:res, message:"Details found"})
 
                 console.log("res", res);
                 
