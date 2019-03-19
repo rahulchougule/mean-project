@@ -10,6 +10,8 @@ import { PersonalinfolistComponent } from './personalinfolist/personalinfolist.c
 import { AppGuardService } from "./../service/app.route.guard";
 import { LogoutComponent } from './logout/logout.component';
 import { PersonalinfolisttempComponent } from './personalinfolisttemp/personalinfolisttemp.component';
+import { DashboardinfoComponent } from './dashboardinfo/dashboardinfo.component';
+import { ChangepasswordComponent } from './changepassword/changepassword.component';
 
 const routes: Routes = [
     {
@@ -25,6 +27,11 @@ const routes: Routes = [
         component: DashboardComponent, 
         canActivate:[AppGuardService],
         children :[
+            {
+                path:'dashboardinfo',
+                component:DashboardinfoComponent,
+                canActivate:[AppGuardService]
+            },
             {
               path:'userlist',
               component:UserlistComponent,
@@ -48,6 +55,11 @@ const routes: Routes = [
             {
                 path:'personalinfolisttemp',
                 component:PersonalinfolisttempComponent,
+                canActivate:[AppGuardService]
+            },
+            {
+                path:'changepassword',
+                component:ChangepasswordComponent,
                 canActivate:[AppGuardService]
             },
             {

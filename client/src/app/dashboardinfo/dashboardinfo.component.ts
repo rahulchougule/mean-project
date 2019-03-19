@@ -5,11 +5,11 @@ import { Response } from "@angular/http";
 import { DashboardService } from "./../../service/app.dashboard.service";
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: 'app-dashboardinfo',
+  templateUrl: './dashboardinfo.component.html',
+  styleUrls: ['./dashboardinfo.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardinfoComponent implements OnInit {
 
   user:string;   
   role:string;
@@ -34,10 +34,6 @@ export class DashboardComponent implements OnInit {
   this.role = sessionStorage.getItem('role')
    this.token = sessionStorage.getItem('token')
   
- if(this.token =="" || this.token == null){
-   
- }
-
   if(this.role === 'AccessUser'){
     this.forUser = true;
     

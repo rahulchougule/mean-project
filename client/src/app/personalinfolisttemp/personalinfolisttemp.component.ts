@@ -71,7 +71,7 @@ export class PersonalinfolisttempComponent implements OnInit {
           this.serve.postData(this.person, this.token).subscribe(
             (resp:Response)=>{        
              
-              this.onClickReject();
+              this.onClickReject();  // to delete user info from list once  it is approved
 
               
             },
@@ -100,7 +100,7 @@ export class PersonalinfolisttempComponent implements OnInit {
       (resp:Response) => {
         //this.persons = resp.json().data;
                    
-        alert("Personal details Approved")
+        alert("Personal details rejected")
 
         this.ngOnInit();
       },

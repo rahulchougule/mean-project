@@ -23,6 +23,8 @@ import { PersonalinfolisttempComponent } from './personalinfolisttemp/personalin
 
 import { SearchPipe } from "./../pipe/search.pipe";
 import { DashboardService } from 'src/service/app.dashboard.service';
+import { DashboardinfoComponent } from './dashboardinfo/dashboardinfo.component';
+import { ChangepasswordComponent } from './changepassword/changepassword.component';
 
 @NgModule({
     declarations: [
@@ -35,7 +37,9 @@ import { DashboardService } from 'src/service/app.dashboard.service';
     PersonalinfolistComponent,
     LogoutComponent,
     PersonalinfolisttempComponent,
-    SearchPipe  
+    SearchPipe,
+    DashboardinfoComponent,
+    ChangepasswordComponent  
   ],
   imports: [
     BrowserModule,

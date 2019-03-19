@@ -12,50 +12,32 @@
 <div class="row">
       
    <div class="col-md-2 navigation">
-           
-         <a class="nav" [routerLink]='["../dashboard"]' > Dashboard </a> 
-         <a class="nav" [routerLink]='["userlist"]' *ngIf="forUser==false"> Users </a>
-         <a class="nav" [routerLink]='["personalinfolist"]' *ngIf="forUser==false"> Personal Info </a>
-         <a class="nav" [routerLink]='["logout"]'> Logout </a>
-   </div>
+        <ul class="nav navbar-nav">
+            <li><a class="nav" [routerLink]='["dashboardinfo"]' > Dashboard </a> </li>
+            <li><a class="nav" [routerLink]='["userlist"]' *ngIf="forUser==false"> Users </a></li>
+            <li><a class="nav" [routerLink]='["personalinfolist"]' *ngIf="forUser==false"> Personal Info </a></li>
+            <li><a class="nav" [routerLink]='["logout"]'> Logout </a></li>
+      </ul>   
+         <div class="usersettings">
+
+            <a [routerLink]='["dashboardinfo"]' *ngIf="forUser==false"><i class="fa fa-bell"></i></a>
+            <a [routerLink]='["personalinfolist"]' *ngIf="forUser==false"><i class="fa fa-check"></i></a>
+            <a [routerLink]='["userlist"]' *ngIf="forUser==false"><i class="fa fa-user"></i></a>
+            <a [routerLink]='["changepassword"]' *ngIf="forUser==false"><i class="fa fa-cog"></i>  </a> 
+         </div>
+    </div>
+
    <div class="col-md-9">
 
-         <div class="row">
-
-                    
-                       <div class="col-md-3">
-                              <div class="adminusers ">
-                                 <h3> {{totalUsers}} </h3> <h6><i class="fa fa-user"></i>  Admin users <span class="pull-right">  <a class="nav" [routerLink]='["userlist"]' *ngIf="forUser==false"> Go</a> </span></h6>
-                                  
-                                 <hr>
-                              </div>
-                      </div>
-                      
-                      <div class="col-md-3">
-                              <div class="operatorusers">
-                                 <h3> {{operators}} </h3>  <h6> <i class="fa fa-check"> </i>Operator users <span class="pull-right"> <a class="nav" [routerLink]='["userlist"]' *ngIf="forUser==false"> Go</a> </span></h6>
-                                  <hr>
-                              </div>
-                      </div>
-                      
-                      <div class="col-md-3">
-                              <div class="accessusers ">
-                                 <h3> {{accessUsers}} </h3>  <h6><i class="fa fa-group"></i> Access users<span class="pull-right"> <a class="nav" [routerLink]='["userlist"]' *ngIf="forUser==false"> Go</a> </span></h6>
-                                 <hr>
-                              </div>
-                      </div>
-                      <div class="col-md-3">
-                              <div class="pendingusers ">
-                                 <h3> {{pendingApprovals}} </h3> <h6><i class="fa fa-dot-circle-o"></i> Pending Approvals<span class="pull-right"> <a class="nav" [routerLink]='["personalinfolist"]' *ngIf="forUser==false">Go</a> </span></h6>
-                                 <hr>
-                              </div>
-                      </div> 
-                       
-         </div>         
+                 
 
 
          <router-outlet></router-outlet>            
    </div>
 
+</div>
+<div class="row footer">
+ 
+ <p> Developed by : Rahul Chougule | Harbinger Group   </p> 
 </div>
 

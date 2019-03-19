@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
           alert(resp.json().message)
         }
          else{
-          this.router.navigate(['dashboard'])          
+          this.router.navigate(['dashboard/dashboardinfo'])          
         }
       }
       else{
